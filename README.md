@@ -1,7 +1,8 @@
 # AI demo
 This project uses 3 kinds of AI topics: procedural content generation, steering behaviors (seek,flee and wander) 
 and A* path finding.
-# Procedural cave generation
+
+## Procedural cave generation
 The procedural content generation is used to make random levels for the demo. 
 The algorithm uses a binary grid based discretization (where 0 is an empty space and 1 is a wall) 
 and consist of the following steps:
@@ -16,7 +17,7 @@ better looking caves;
 in the map, the algorithm performs a step of culling the rooms givem a minimum size;
 - 3d Mesh Generation: using the marching squares algorithm, turns the binary grid in to a 3D mesh.
 
-# Steering behaviors
+## Steering behaviors
 The steering behaviors are used to control the enemy agents. They have the following states, that are
 setted using player input:
 - Seek: the enemy's velocity is smoothly changed towards the target. In order to avoid the cave walls,
@@ -29,7 +30,7 @@ target to move while the enemy is seeking for it;
 then calculates the shortest path to it, and finally, uses the same logic of seek to reach the random spot. When he
 arrives at the destination, he picks another random empty coordinate and start again.
 
-# A* path finding
+## A* Path Finding
 The a* algorithm is applied over the binary grid map used to discretize the cave. Given the start
 position and the player position, the algorithm searches over all the map avoiding the wall tiles.
 On the path reconstruction step, the grid coodinates are converted to world space points and store in
