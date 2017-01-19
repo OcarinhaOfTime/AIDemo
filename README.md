@@ -1,4 +1,4 @@
-#AI demo
+# AI demo
 This project uses 3 kinds of AI topics: procedural content generation, steering behaviors (seek,flee and wander) 
 and A* path finding.
 # Procedural cave generation
