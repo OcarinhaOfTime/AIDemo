@@ -1,5 +1,5 @@
 #AI demo
-This project uses 3 kinds of AI topics: procedural content generation and marching cubes, steering behaviors (seek,flee and wander) 
+This project uses 3 kinds of AI topics: procedural content generation, steering behaviors (seek,flee and wander) 
 and A* path finding.
 # Procedural cave generation
 The procedural content generation is used to make random levels for the demo. 
@@ -19,13 +19,13 @@ in the map, the algorithm performs a step of culling the rooms givem a minimum s
 # Steering behaviors
 The steering behaviors are used to control the enemy agents. They have the following states, that are
 setted using player input:
-- seek: the enemy's velocity is smoothly changed towards the target. In order to avoid the cave walls,
+- Seek: the enemy's velocity is smoothly changed towards the target. In order to avoid the cave walls,
 the A* algorithm is used to generate a set of points that will make the shortest path to the player.
 The path is represented as a stack of vector3 and the seek behavior moves toward one point at time, till
 the path is empty meaning he has reached it's goal. The path is recalculated each frame to allow the enemy's
 target to move while the enemy is seeking for it
-- flee: the enemy simply try to move away from the player, using a steering force to smoothly change it's direction
-- wander: reusing part of the code of the seek behavior, wander randomly picks an empty coordinate of the map,
+- Flee: the enemy simply try to move away from the player, using a steering force to smoothly change it's direction
+- Wander: reusing part of the code of the seek behavior, wander randomly picks an empty coordinate of the map,
 then calculates the shortest path to it, and finally, uses the same logic of seek to reach the random spot. When he
 arrives at the destination, he picks another random empty coordinate and start again
 
