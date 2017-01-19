@@ -33,5 +33,23 @@ arrives at the destination, he picks another random empty coordinate and start a
 ## A* Path Finding
 The a* algorithm is applied over the binary grid map used to discretize the cave. Given the start
 position and the player position, the algorithm searches over all the map avoiding the wall tiles.
+The algorithm uses a custom priority queue that uses the the fScore map value of the current open tile
+as the priority rule. The heuristic used to estimate the distance between tiles is the squared distance,
+to avoid square root operations.
 On the path reconstruction step, the grid coodinates are converted to world space points and store in
 a stack for future use in the steering behavior script.
+
+## Project Modularity
+In order to reuse my code in a similar but distinct context, most of the implementation was done in a modular way.
+Since grids are used extensively in this demo, i have created a class Map, with the index overloading and implementation
+of the IEnumerable interface to turn this data structure easy to iterate and change. The mesh generation class can be used for any 
+binary map grid to make meshes in many different scenarios. PathFind is a class that just worries with the shortest path
+generation between 2 points in a grid, and also can be used in many other contexts.
+
+## Demo Scene
+The demo scene shows a player (the blue capsule) and 3 enemy agents (the red spheres) at a random place in the procedural 
+generated map. With the key N the user can generate a new map, then the player and the enemy agents
+will be placed at a random empty point in the map. With the mouse click, the user can set manually the player position.
+The number keys 1, 2, 3 and 4 are used to change the enemies steering behavior (idle, seek, flee and wander, respectively).
+The S key toggles the camera perspective (as the demo tooks place in a 3D enviroment) to a top view / third person mode.
+When in third person mode, the player can turn around the camera with A / D keys.
